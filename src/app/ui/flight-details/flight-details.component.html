@@ -1,0 +1,46 @@
+<div class="flight-details" *ngIf="flightDetails">
+  <div class="image-container">
+    <img 
+      [src]="'./assets/images/'+flightDetails.airline+'.png'" 
+      width="115px" 
+      alt="airline-logo" />
+    <h2>
+      <strong>Flight No:</strong> {{flightDetails.flight_number}}
+    </h2>
+  </div>
+  <div fxLayout="row" fxLayoutGap="10px">
+    <div class="info-container">
+      <h3><strong>Departing Details</strong></h3>
+      <p>
+        <strong>Airport:</strong> 
+        {{flightDetails.departing_data.airport}} 
+        ({{flightDetails.departing_data.airport_code}})
+      </p>
+      <p>
+        <strong>Terminal:</strong> 
+        {{flightDetails.departing_data.terminal}} 
+      </p>
+      <p>
+        <strong>Gate No.:</strong> 
+        {{flightDetails.departing_data.gate_number}}
+      </p>
+    </div>
+    <div class="info-container">
+      <h3><strong>Arrival Details</strong></h3>
+      <p>
+        <strong>Airport:</strong> 
+        {{flightDetails.arriving_data.airport}} 
+        ({{flightDetails.arriving_data.airport_code}})
+      </p>
+      <p>
+        <strong>Terminal:</strong> 
+        {{flightDetails.arriving_data.terminal}} 
+      </p>
+      <p>
+        <strong>Gate No.:</strong> 
+        {{flightDetails.arriving_data.gate_number}}
+      </p>
+    </div>
+  </div>
+</div>
+<hr/>

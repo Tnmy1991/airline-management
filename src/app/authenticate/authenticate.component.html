@@ -1,0 +1,20 @@
+<app-auth-layout>
+  <div class="signin-container" leftside>
+    <h1>Sign-in as Admin,</h1>
+    <a href="javascript:void(0);" aria-label="Login with Google" (click)="signInWithGoogle('admin')">
+      <img [src]="'/assets/images/icons8-google.svg'" alt="google-logo">
+    </a>
+    <a href="javascript:void(1);" aria-label="Login with Facebook" (click)="signInWithFB('admin')">
+      <img [src]="'/assets/images/icons8-facebook.svg'" alt="facebook-logo">
+    </a>
+  </div>
+  <div class="signin-container" rightside>
+    <h1>Sign-in as Staff,</h1>
+    <a href="javascript:void(0);" aria-label="Login with Google" (click)="signInWithGoogle('staff')">
+      <img [src]="'/assets/images/icons8-google.svg'" alt="google-logo">
+    </a>
+    <a href="javascript:void(1);" aria-label="Login with Facebook" (click)="signInWithFB('staff')">
+      <img [src]="'/assets/images/icons8-facebook.svg'" alt="facebook-logo">
+    </a>
+  </div>
+</app-auth-layout>

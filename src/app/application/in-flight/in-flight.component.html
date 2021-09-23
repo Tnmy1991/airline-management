@@ -1,0 +1,20 @@
+<mat-card>
+  <app-page-layout [addClass]="'reverse'">
+    <div leftside>
+      <app-seating-layout [passengers]="passengersData" [flightNumber]="currentFlight"></app-seating-layout>
+    </div>
+    <div rightside>
+      <app-flight-details [data]="flightDetails"></app-flight-details>
+      <div class="passengrs-list">
+        <app-smart-table 
+          [title]="'Passengers'" 
+          [isFilterable]="false" 
+          [isCreatable]="false" 
+          [tableHeader]="passengerTable" 
+          [tableSource]="passengersData" 
+          (emittedObject)="handleEditOperation($event)"
+        ></app-smart-table>
+      </div>
+    </div>
+  </app-page-layout>
+</mat-card>

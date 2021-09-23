@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content class="modal-container">
+  <form [formGroup]="serviceForm" (ngSubmit)="submitForm()">
+    <div class="field-wrapper">
+      <mat-form-field appearance="fill">
+        <mat-label for="name">Name</mat-label>
+        <input matInput id="name" placeholder="Name" formControlName="name" aria-label="Name" aria-describedby="name">
+      </mat-form-field>
+    </div>
+    <table class="table-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <div class="field-wrapper">
+            <mat-form-field appearance="fill">
+              <mat-label>Type</mat-label>
+              <mat-select formControlName="type">
+                <mat-option *ngFor="let service of serviceTypes" [value]="service.value">{{ service.label}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </td>
+        <td>
+          <div class="field-wrapper">
+            <mat-form-field appearance="fill">
+              <mat-label for="price">Price</mat-label>
+              <input matInput id="price" placeholder="Price" formControlName="price" aria-label="Price" aria-describedby="price">
+              <span matSuffix>In INR(₹)</span>
+            </mat-form-field>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="actions-wrapper">
+      <button type="button" mat-raised-button mat-dialog-close>Cancel</button>
+      <button type="submit" mat-raised-button color="primary">Save</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,49 @@
+<div class="seat-map-container">
+  <div class="legend">
+    <ul>
+      <li *ngFor="let legend of legends;">
+        <img [src]="'./assets/images/'+legend.img" [attr.alt]="legend.alt" width="20px"/>
+        <span>{{legend.label}}</span>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <span><Strong>?</Strong> Yet to Check-In</span>
+      </li>
+      <li>
+        <span><Strong>*</Strong> Checked-In</span>
+      </li>
+      <li>
+        <span><Strong>!</Strong> Req Special Meals</span>
+      </li>
+      <li>
+        <span><Strong class="marker"></Strong> Shopping Request</span>
+      </li>
+    </ul>
+  </div>
+  <div class="layout">
+    <ng-container *ngFor="let row of rows;">
+      <div class="seat-row" fxLayout="row inline" fxLayoutGap="5px">
+        <ng-container *ngFor="let seat of prepareSeatRow(row); trackBy: trackSeat">
+          <ng-template [ngIf]="seat === '*'">
+            <div class="row-container">
+              <span>{{row}}</span>
+            </div>
+          </ng-template>
+          <ng-template [ngIf]="seat !== '*'">
+            <div 
+              appSeatMarking 
+              [id]="'seat-'+seat" 
+              [seatNumber]="seat" 
+              [seatsData]="seatData" 
+              [flightNumber]="flightNumber"
+              class="seat" 
+              (closeTrigger)="handleCloseTrigger($event)"
+              (click)="selectSeats(seat)"
+            ></div>
+          </ng-template>
+        </ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>

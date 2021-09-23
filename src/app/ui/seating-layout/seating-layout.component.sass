@@ -1,0 +1,98 @@
+.seat-map-container
+  width: 250px
+  margin: 0 auto
+
+  .layout
+    width: 246px
+
+    .seat-row
+      margin-bottom: 10px
+      
+      .seat
+        width: 30px
+        height: 35px
+        cursor: pointer
+        background-image: url("../../../assets/images/available-seat.png")
+
+        &.selected
+          background-image: url("../../../assets/images/selected-seat.png")
+
+        &.booked
+          background-image: url("../../../assets/images/booked-seat.png")
+
+        &.infant
+          background-image: url("../../../assets/images/infant-seat.png")
+        
+        &.wheelchair
+          background-image: url("../../../assets/images/wheelchair-seat.png")
+
+        &.infant.wheelchair
+          background-image: url("../../../assets/images/both-seat.png")
+
+        &.not-check-in
+          &::before
+            top: -5px
+            left: 0px
+            content: "?"
+            font-weight: 600
+            position: relative
+            background: #ccc
+            border-radius: 50%
+            text-align: center
+            padding: 3px 4px 0px 4px
+
+        &.checked-in
+          &::before
+            top: -5px
+            left: 0px
+            content: "*"
+            font-weight: 600
+            position: relative
+            background: #ccc
+            border-radius: 50%
+            text-align: center
+            padding: 3px 4px 0px 4px
+
+        &.special-meal
+          &::after
+            top: 6px
+            left: -1px
+            color: #fff
+            content: "!"
+            font-size: 18px
+            position: relative
+            font-weight: 600
+
+        &.shopping-request
+          &::before
+            background: #2ca321
+
+      .row-container
+        width: 36px
+        border-radius: 50%
+        text-align: center
+        background: #ccc
+        padding: 8px 0px 0px 0px
+
+  .legend
+    display: flex
+
+    ul
+      width: 50%
+      padding-left: 0px
+      list-style-type: none
+
+      img
+        margin-right: 5px
+        vertical-align: middle
+
+      .marker
+        width: 30px
+        height: 35px
+
+        &::after
+          content: "*"
+          font-weight: 600
+          position: relative
+          background: #2ca321
+          border-radius: 50%

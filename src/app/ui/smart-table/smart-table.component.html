@@ -1,0 +1,41 @@
+<div class="flex-container" fxLayout="row">
+  <div fxFlex="1 2 auto">
+    <h3 class="table-heading">{{title}} List</h3>
+  </div>
+  <div>
+    <button mat-raised-button *ngIf="isCreatable" (click)="performAdd(title)">Add</button>
+    <button mat-raised-button *ngIf="isFilterable" (click)="performFilter()">Filter</button>
+  </div>
+</div>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" [trackBy]="trackIteration">
+
+    <ng-container *ngFor="let header of tableHeader" [matColumnDef]="header.key">
+      <th mat-header-cell *matHeaderCellDef>
+        {{header.label}}
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{element | propertyGetter: header.key | servicePipe}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef width="20px">Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button (click)="performEdit(element)">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator 
+    [pageSize]="10"
+    [pageSizeOptions]="[10, 25, 50, 100]"
+    showFirstLastButtons 
+    aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>

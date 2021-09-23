@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content *ngIf="isReady" class="filter-container">
+  <form [formGroup]="filterForm">
+    <div class="field-wrapper" *ngFor="let field of data.meta">
+      <mat-form-field appearance="fill">
+        <mat-label>{{field.label}}</mat-label>
+        <mat-select formControlName="{{field.field}}" aria-label="{{field.label}}" (selectionChange)="emitData();">
+          <mat-option *ngFor="let data of optionsDataArray" [value]="data.value">{{data.label}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </form>
+</div>

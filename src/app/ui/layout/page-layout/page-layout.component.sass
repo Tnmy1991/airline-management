@@ -1,0 +1,31 @@
+.page-layout
+  width: 100%
+  padding: 15px 10px 15px 10px
+
+  @media screen and (max-width: 860px)
+    flex-flow: wrap
+
+  &.reverse
+    @media screen and (max-width: 860px)
+      flex-direction: column-reverse !important
+
+  .child-container
+    width: 50%
+
+    @media screen and (max-width: 860px)
+      width: 100%
+
+    &:first-child
+      padding-right: 10px
+
+      @media screen and (max-width: 860px)
+        border-left: none
+    
+    &:last-child
+      padding-left: 10px
+      border-left: 1px solid #ccc
+
+      @media screen and (max-width: 860px)
+        padding-left: 0
+        padding-top: 20px
+        border-left: none

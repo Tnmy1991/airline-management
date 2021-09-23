@@ -1,0 +1,172 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<div mat-dialog-content class="modal-container">
+  <form [formGroup]="passengerForm" (ngSubmit)="submitForm()">
+    <div class="field-wrapper">
+      <mat-form-field appearance="fill">
+        <mat-label for="full_name">Full Name</mat-label>
+        <input 
+          matInput 
+          id="full_name"
+          placeholder="Full Name" 
+          formControlName="full_name" 
+          aria-label="Full Name" 
+          aria-describedby="full_name" 
+          [readonly]="!data?.edit_access?.full_name">
+      </mat-form-field>
+    </div>
+    <table class="table-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <div class="field-wrapper">
+            <mat-form-field appearance="fill">
+              <mat-label for="passport_number">Passport Number</mat-label>
+              <input 
+                matInput 
+                id="passport_number"
+                placeholder="Passport Number" 
+                formControlName="passport_number" 
+                aria-label="Passport Number" 
+                aria-describedby="passport_number" 
+                [readonly]="!data?.edit_access?.passport_number">
+            </mat-form-field>
+          </div>
+        </td>
+        <td>
+          <div class="field-wrapper">
+            <mat-form-field appearance="fill">
+              <mat-label for="date_of_birth">Date of Birth</mat-label>
+              <input 
+                matInput 
+                id="date_of_birth" 
+                placeholder="Date of Birth" 
+                formControlName="date_of_birth" 
+                aria-label="Date of Birth" 
+                aria-describedby="date_of_birth" 
+                [readonly]="!data?.edit_access?.date_of_birth">
+            </mat-form-field>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="field-wrapper">
+      <mat-form-field appearance="fill">
+        <mat-label for="address">Address</mat-label>
+        <textarea 
+          matInput 
+          id="address" 
+          placeholder="Address" 
+          formControlName="address" 
+          aria-label="Address" 
+          aria-describedby="address" 
+          [readonly]="!data?.edit_access?.address"></textarea>
+      </mat-form-field>
+    </div>
+    <table class="table-full-width" cellspacing="0">
+      <tr>
+        <td>
+          <div class="field-wrapper">
+            <mat-form-field appearance="fill">
+              <mat-label for="flight_number">Flight Number</mat-label>
+              <input 
+                matInput 
+                id="flight_number" 
+                placeholder="Flight Number" 
+                formControlName="flight_number" 
+                aria-label="Flight Number" 
+                aria-describedby="flight_number" 
+                readonly>
+            </mat-form-field>
+          </div>
+        </td>
+        <td>
+          <div class="field-wrapper">
+            <mat-form-field appearance="fill">
+              <mat-label for="seat_number">Seat Number</mat-label>
+              <input 
+                matInput 
+                id="seat_number" 
+                placeholder="Seat Number" 
+                formControlName="seat_number" 
+                aria-label="Seat Number" 
+                aria-describedby="seat_number" 
+                [matAutocomplete]="auto" 
+                [readonly]="!data?.edit_access?.seat_number">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let option of availableSeats$ | async" [value]="option">
+                  {{option}}
+                </mat-option>
+              </mat-autocomplete>
+
+            </mat-form-field>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <table class="table-full-width" cellspacing="0">
+      <tr>
+        <td *ngIf="data?.edit_access?.with_infants">
+          <div class="field-wrapper">
+            <mat-slide-toggle
+              class="example-margin"
+              [color]="'primary'"
+              formControlName="with_infants">
+              With Infant(s)
+            </mat-slide-toggle>
+          </div>
+        </td>
+        <td *ngIf="data?.edit_access?.requiring_wheel_chair">
+          <div class="field-wrapper">
+            <mat-slide-toggle
+              class="example-margin"
+              [color]="'primary'"
+              formControlName="requiring_wheel_chair">
+              Require Wheel-chair
+            </mat-slide-toggle>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td *ngIf="data?.edit_access?.requiring_special_meal">
+          <div class="field-wrapper">
+            <mat-slide-toggle
+              class="example-margin"
+              [color]="'primary'"
+              formControlName="requiring_special_meal">
+              Require Special Meal(s)
+            </mat-slide-toggle>
+          </div>
+        </td>
+        <td *ngIf="data?.edit_access?.shopping_request">
+          <div class="field-wrapper">
+            <mat-slide-toggle
+              class="example-margin"
+              [color]="'primary'"
+              formControlName="shopping_request">
+              Shopping Request(s)
+            </mat-slide-toggle>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="field-wrapper">
+      <mat-form-field appearance="fill">
+        <mat-label>Ancillary Services</mat-label>
+        <mat-select formControlName="ancillary_services" multiple>
+          <mat-optgroup label="Ancillary Services">
+            <mat-option *ngFor="let service of ancillaryServices" [value]="service.id">{{service.name}} - {{service.price}}</mat-option>
+          </mat-optgroup>
+          <mat-optgroup label="Special Meals">
+            <mat-option *ngFor="let service of specialMeals" [value]="service.id" [disabled]="!data?.edit_access?.requiring_special_meal">{{service.name}} - {{service.price}}</mat-option>
+          </mat-optgroup>
+          <mat-optgroup label="Shopping Items">
+            <mat-option *ngFor="let service of shoppingItems" [value]="service.id" [disabled]="!data?.edit_access?.shopping_request">{{service.name}} - {{service.price}}</mat-option>
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>      
+    </div>
+    <div class="actions-wrapper">
+      <button type="button" mat-raised-button mat-dialog-close>Cancel</button>
+      <button type="submit" mat-raised-button color="primary">Save</button>
+    </div>
+  </form>
+</div>
