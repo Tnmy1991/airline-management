@@ -9,6 +9,7 @@ import {
   Passenger, 
   EditEmitter, 
   FlightService,
+  AppInitService,
   PassengerService,
   AncillaryService, 
   SmartTableHeader, 
@@ -80,6 +81,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   constructor(
     private _dialog: MatDialog, 
+    private _appInit: AppInitService,
     private _bottomSheet: MatBottomSheet,
     private _flightService: FlightService,
     private _passengerService: PassengerService,
@@ -103,7 +105,7 @@ export class AdminComponent implements OnInit, OnDestroy {
       ).subscribe(flights => {
         this.flightDetails = flights[0];
       });
-      this.fetchFlightData();
+      this._appInit.Init();
     });
     this._dataInteraction.getEmittedFilterData().pipe(
       takeUntil(this.unSubscribe)

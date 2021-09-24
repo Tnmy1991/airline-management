@@ -3,6 +3,7 @@ export * from './core.model';
 export { serviceTypes } from './mock.data';
 
 // services
+export * from './services/init.service';
 export * from './services/auth.service';
 export * from './services/flight.service';
 export * from './services/passenger.service';
