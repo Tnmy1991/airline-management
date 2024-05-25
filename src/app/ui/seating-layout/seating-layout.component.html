@@ -23,7 +23,7 @@
   </div>
   <div class="layout">
     <ng-container *ngFor="let row of rows;">
-      <div class="seat-row" fxLayout="row inline" fxLayoutGap="5px">
+      <div class="seat-row">
         <ng-container *ngFor="let seat of prepareSeatRow(row); trackBy: trackSeat">
           <ng-template [ngIf]="seat === '*'">
             <div class="row-container">

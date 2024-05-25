@@ -1,5 +1,5 @@
 <mat-card>
-  <div fxLayout class="flight-selection">
+  <div class="flight-selection">
     <mat-form-field appearance="fill">
       <mat-label>Select a Flight</mat-label>
       <mat-select [formControl]="flight">
@@ -11,7 +11,7 @@
 <div class="space-gap"></div>
 <mat-card>
   <app-page-layout>
-    <div leftside>
+    <div class="leftside">
       <app-smart-table 
         [title]="'Passengers'" 
         [isFilterable]="true" 
@@ -22,7 +22,7 @@
         (emittedObject)="handleEditOperation($event)"
       ></app-smart-table>
     </div>
-    <div rightside>
+    <div class="rightside">
       <app-smart-table 
         [title]="'Ancillary Services'"  
         [tableHeader]="servicesTable" 

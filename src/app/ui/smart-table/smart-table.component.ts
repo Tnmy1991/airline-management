@@ -1,7 +1,7 @@
 import { OnChanges, AfterViewInit, OnDestroy, Component, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Passenger, SmartTableHeader, AncillaryService, EditEmitter} from '../../data-access';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { MatLegacyPaginator as MatPaginator } from '@angular/material/legacy-paginator';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 

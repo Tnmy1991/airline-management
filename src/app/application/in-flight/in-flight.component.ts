@@ -10,7 +10,7 @@ import {
   AncillaryServicesService
 } from '../../data-access';
 import { map, mergeMap, takeUntil } from 'rxjs/operators';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { combineLatest, of, Subject, Subscription } from 'rxjs';
 import { PassengerFormComponent } from '../admin/admin-components/passenger-form/passenger-form.component';
 

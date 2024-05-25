@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { map, mergeMap, takeUntil } from 'rxjs/operators';
 import { UntypedFormControl } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { combineLatest, of, Subject } from 'rxjs';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { 
