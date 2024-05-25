@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
-import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { MatLegacySlideToggleChange as MatSlideToggleChange } from '@angular/material/legacy-slide-toggle';
 import { Passenger, PassengerService, AncillaryService, AncillaryServicesService } from '../../data-access';
 import { map, takeUntil } from 'rxjs/operators';
 import { combineLatest, Subject } from 'rxjs';
