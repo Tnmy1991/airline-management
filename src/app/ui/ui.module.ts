@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatLegacyTableModule as MatTableModule } from '@angular/material/legacy-table';
 import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -64,7 +63,6 @@ import { FlightDetailsComponent } from './flight-details/flight-details.componen
     MatTableModule,
     MatButtonModule,
     MatToolbarModule,
-    FlexLayoutModule,
     MatGridListModule,
     MatPaginatorModule,
     ReactiveFormsModule,
@@ -85,7 +83,6 @@ import { FlightDetailsComponent } from './flight-details/flight-details.componen
     MatTableModule,
     MatButtonModule,
     MatToolbarModule,
-    FlexLayoutModule,
     MatGridListModule,
     MatPaginatorModule,
     HeaderComponent,
