@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { map, mergeMap, takeUntil } from 'rxjs/operators';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { combineLatest, of, Subject } from 'rxjs';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
@@ -29,7 +29,7 @@ export class CheckInComponent implements OnInit, OnDestroy {
   public flightsData: Flight[] = [];
   public currentFlight: string = '';
   public passengersData: Passenger[] = [];
-  public flight: FormControl =  new FormControl('');
+  public flight: UntypedFormControl =  new UntypedFormControl('');
   public passengerTable: SmartTableHeader[] = [
     {
       key: 'full_name',
