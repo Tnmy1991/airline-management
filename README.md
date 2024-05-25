@@ -1,11 +1,12 @@
 # AssigmentApplication
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.2. Recently, application upgraded into Angular 16.2.14.
 
 ## Requirements
 
-1. Install [JSON Server](https://www.npmjs.com/package/json-server) globally and start JSON Server with `json-server --watch db.json`.
-2. Must have a Google or Facebook Account to authenticate yourself to get access the application.
+1. Install [JSON Server](https://www.npmjs.com/package/json-server) globally and start JSON Server with `json-server --watch db.json`. [Deprecated]
+2. JSON Server replace with AWS API Gateway, development is in pipeline.
+3. Must have a Google or Facebook Account to authenticate yourself to get access the application.
 
 ## Development server
 
