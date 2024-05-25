@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { ModalFormData, AncillaryService } from '../../../../data-access';
 import { v4 as uuidv4 } from 'uuid';
 import { PassengerService } from '../../../../data-access';
@@ -14,7 +14,7 @@ import { map, startWith } from 'rxjs/operators';
 })
 export class PassengerFormComponent implements OnInit {
 
-  public passengerForm: FormGroup;
+  public passengerForm: UntypedFormGroup;
   public title: string = 'Add New Passenger';
   public specialMeals: AncillaryService[] = [];
   public availableSeats$!: Observable<string[]>;
@@ -31,20 +31,20 @@ export class PassengerFormComponent implements OnInit {
     this._passengerService.selectSeat(this.data?.flight_number).subscribe((seats: string[]) => {
       this.availableSeats = seats;
     });
-    this.passengerForm = new FormGroup({
-      full_name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      passport_number: new FormControl('', [Validators.required, Validators.pattern(/[a-zA-Z]{1}[0-9]{7}/)]),
-      address: new FormControl('', [Validators.required, Validators.minLength(15)]),
-      date_of_birth: new FormControl('', [Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]),
-      seat_number: new FormControl(''),
-      flight_number: new FormControl('', Validators.required),
-      is_checkedIn: new FormControl(false),
-      requiring_wheel_chair: new FormControl(false),
-      with_infants: new FormControl(false),
-      requiring_special_meal: new FormControl(false),
-      shopping_request: new FormControl(false),
-      ancillary_services: new FormControl([]),
-      id: new FormControl(''),
+    this.passengerForm = new UntypedFormGroup({
+      full_name: new UntypedFormControl('', [Validators.required, Validators.minLength(3)]),
+      passport_number: new UntypedFormControl('', [Validators.required, Validators.pattern(/[a-zA-Z]{1}[0-9]{7}/)]),
+      address: new UntypedFormControl('', [Validators.required, Validators.minLength(15)]),
+      date_of_birth: new UntypedFormControl('', [Validators.required, Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]),
+      seat_number: new UntypedFormControl(''),
+      flight_number: new UntypedFormControl('', Validators.required),
+      is_checkedIn: new UntypedFormControl(false),
+      requiring_wheel_chair: new UntypedFormControl(false),
+      with_infants: new UntypedFormControl(false),
+      requiring_special_meal: new UntypedFormControl(false),
+      shopping_request: new UntypedFormControl(false),
+      ancillary_services: new UntypedFormControl([]),
+      id: new UntypedFormControl(''),
     });
   }
 

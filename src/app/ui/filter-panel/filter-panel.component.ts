@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
 import { BottomFilter, Option, FilterField, DataInteractionService } from '../../data-access';
 
@@ -10,7 +10,7 @@ import { BottomFilter, Option, FilterField, DataInteractionService } from '../..
 })
 export class FilterPanelComponent implements OnInit {
 
-  public filterForm: FormGroup;
+  public filterForm: UntypedFormGroup;
   public isReady: boolean =false;
   public optionsDataArray: Option[] = [];
 
@@ -18,7 +18,7 @@ export class FilterPanelComponent implements OnInit {
     private dataInteraction: DataInteractionService,
     @Inject(MAT_BOTTOM_SHEET_DATA) public data: BottomFilter
   ) {
-    this.filterForm = new FormGroup({});
+    this.filterForm = new UntypedFormGroup({});
   }
 
   ngOnInit(): void {
@@ -27,7 +27,7 @@ export class FilterPanelComponent implements OnInit {
 
   private prepareForm(fields: FilterField[]): void {
     fields.forEach((field: FilterField) => {
-      const control = new FormControl(field.field);
+      const control = new UntypedFormControl(field.field);
       this.filterForm.addControl(field.field, control);
       this.optionsDataArray = [...field.options];
       if(field.selected) {

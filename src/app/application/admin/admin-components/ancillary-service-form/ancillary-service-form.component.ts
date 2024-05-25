@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators } from '@angular/forms';
 import { ModalFormData, ServiceType, serviceTypes } from '../../../../data-access';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -11,7 +11,7 @@ import { v4 as uuidv4 } from 'uuid';
 })
 export class AncillaryServiceFormComponent implements OnInit {
 
-  public serviceForm: FormGroup;
+  public serviceForm: UntypedFormGroup;
   public title: string = 'Add New Service';
   public serviceTypes: ServiceType[] = serviceTypes;
 
@@ -19,12 +19,12 @@ export class AncillaryServiceFormComponent implements OnInit {
     public dialogRef: MatDialogRef<AncillaryServiceFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ModalFormData
   ) {
-    this.serviceForm = new FormGroup({
-      id: new FormControl(''),
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      type: new FormControl('', Validators.required),
-      price: new FormControl('', Validators.required),
-      flight_id: new FormControl('', Validators.required),
+    this.serviceForm = new UntypedFormGroup({
+      id: new UntypedFormControl(''),
+      name: new UntypedFormControl('', [Validators.required, Validators.minLength(3)]),
+      type: new UntypedFormControl('', Validators.required),
+      price: new UntypedFormControl('', Validators.required),
+      flight_id: new UntypedFormControl('', Validators.required),
     });
   }
 
