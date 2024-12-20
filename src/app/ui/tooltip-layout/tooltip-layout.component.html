@@ -1,14 +1,13 @@
 <div class="tooltip" *ngIf="passengerDetails">
   <div class="tooltip-header">
-    <h2>
-      <strong>Seat No:</strong> {{seat_number}}
-    </h2>
+    <h2><strong>Seat No:</strong> {{ seat_number }}</h2>
     <section class="checkin-section">
       <mat-slide-toggle
         class="example-margin"
         [color]="'primary'"
         (change)="toggleCheckIn($event)"
-        [checked]="passengerDetails?.is_checkedIn">
+        [checked]="passengerDetails.is_checkedIn"
+      >
         Check-In
       </mat-slide-toggle>
     </section>
@@ -19,43 +18,43 @@
   <div class="tooltip-container">
     <h3>Personal Details</h3>
     <span>
-      <strong>Full Name:</strong> 
-      {{passengerDetails?.full_name}}
+      <strong>Full Name:</strong>
+      {{ passengerDetails.full_name }}
     </span>
     <span>
-      <strong>Passport No:</strong> 
-      {{passengerDetails?.passport_number}}
+      <strong>Passport No:</strong>
+      {{ passengerDetails.passport_number }}
     </span>
     <span>
-      <strong>Address:</strong> 
-      {{passengerDetails?.address}}
+      <strong>Address:</strong>
+      {{ passengerDetails.address }}
     </span>
     <span>
-      <strong>Date of Birth:</strong> 
-      {{passengerDetails?.date_of_birth}}
+      <strong>Date of Birth:</strong>
+      {{ passengerDetails.date_of_birth }}
     </span>
     <h3>Additional Services</h3>
     <span>
-      <strong>With Infants:</strong> 
-      {{passengerDetails?.with_infants ? 'Yes' : 'No'}}
+      <strong>With Infants:</strong>
+      {{ passengerDetails.with_infants ? "Yes" : "No" }}
     </span>
     <span>
-      <strong>Require Wheel-chair:</strong> 
-      {{passengerDetails?.requiring_wheel_chair ? 'Yes' : 'No'}}
+      <strong>Require Wheel-chair:</strong>
+      {{ passengerDetails.requiring_wheel_chair ? "Yes" : "No" }}
     </span>
     <span>
-      <strong>Require Special Meals:</strong> 
-      {{passengerDetails?.requiring_special_meal ? 'Yes' : 'No'}}
+      <strong>Require Special Meals:</strong>
+      {{ passengerDetails.requiring_special_meal ? "Yes" : "No" }}
     </span>
     <span>
-      <strong>Shopping Request:</strong> 
-      {{passengerDetails?.shopping_request ? 'Yes' : 'No'}}
+      <strong>Shopping Request:</strong>
+      {{ passengerDetails.shopping_request ? "Yes" : "No" }}
     </span>
     <ng-container *ngIf="passengerDetails.ancillary_services.length > 0">
       <h3>Ancillary Services</h3>
       <ul class="service-list">
         <li *ngFor="let service of passengerDetails.ancillary_services">
-          <strong>{{service}}</strong>
+          <strong>{{ service }}</strong>
         </li>
       </ul>
     </ng-container>
